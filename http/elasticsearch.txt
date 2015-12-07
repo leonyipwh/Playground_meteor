@@ -1,0 +1,25 @@
+curl -u admin:19degrees 'https://aws-us-east-1-portal9.dblayer.com:10159/_cluster/health?pretty'
+
+curl -XPUT 'https://admin:19degrees@aws-us-east-1-portal9.dblayer.com:10159/' -d '{
+    "user" : "leon",
+    "message" : "trying out Elasticsearch"
+}'
+
+=========== INSERT ===========
+curl -XPUT 'https://admin:19degrees@aws-us-east-1-portal9.dblayer.com:10159/yesmaster/users/1/' -d '{"name":"leon"}'
+
+curl -XPUT 'https://admin:19degrees@aws-us-east-1-portal9.dblayer.com:10159/yesmaster/users/3/' -d '{"name":"bbi","detail":"testing","address":[{"en":"flatB"},{"zh-hk":"123"}] }'
+
+curl -XPUT 'https://admin:19degrees@aws-us-east-1-portal9.dblayer.com:10159/yesmaster/products/1/' -d '{"name":"leon"}'
+
+=========== GET ===========
+** by id **
+curl -XGET 'https://admin:19degrees@aws-us-east-1-portal9.dblayer.com:10159/yesmaster/users/1/'
+
+** multi type **
+https://admin:19degrees@aws-us-east-1-portal9.dblayer.com:10159/yesmaster/products,users/_search?q=leon
+
+=========== DELETE ===========
+curl -XDELETE 'https://admin:19degrees@aws-us-east-1-portal9.dblayer.com:10159/yesmaster/users/1/'
+
+curl -XDELETE 'https://admin:19degrees@aws-us-east-1-portal9.dblayer.com:10159/yesmaster/products/1/'
