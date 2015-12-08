@@ -1,11 +1,11 @@
 if (Meteor.isClient) {
-  Template.hello.helpers({
+  Template.elasticSearch.helpers({
     result:function() {
       return 'hihi';
     }
   });
 
-  Template.hello.events({
+  Template.elasticSearch.events({
     'click #button': function () {
       var query = 'leon';
       Meteor.call("get", query, function(error, result) {

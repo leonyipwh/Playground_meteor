@@ -5,4 +5,4 @@ if (Meteor.isServer) {
       return next();
     });
   });
-};
+}
