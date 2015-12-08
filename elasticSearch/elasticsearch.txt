@@ -19,6 +19,21 @@ curl -XGET 'https://admin:19degrees@aws-us-east-1-portal9.dblayer.com:10159/yesm
 ** multi type **
 https://admin:19degrees@aws-us-east-1-portal9.dblayer.com:10159/yesmaster/products,users/_search?q=leon
 
+=========== POST ===========
+** matching orders **
+https://admin:19degrees@aws-us-east-1-portal9.dblayer.com:10159/yesmaster/products,users/_search
+body:
+{
+  "query": {
+    "bool": {
+      "should": [
+        { "match": { "sku":"ps003" }},
+        { "match": { "title.zh-HK": "製" }}
+      ]
+    }
+  }
+}
+
 =========== DELETE ===========
 curl -XDELETE 'https://admin:19degrees@aws-us-east-1-portal9.dblayer.com:10159/yesmaster/users/1/'
 
