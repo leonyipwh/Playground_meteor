@@ -25,21 +25,38 @@ App = React.createClass({
         </ul>
 
         <Input />
-        <div>value</div>
       </div>
     );
   }
 });
 
 Input = React.createClass({
+    getInitialState : function() {
+    return {
+      name : "chris"
+    };
+  },
   getInput(event) {
     var data = event.target.value;
     console.log(data);
+    this.setState({name: data});
   },
   render() {
     return (
       <div>
         <input type="text" placeholder="Input" onChange={this.getInput}/>
+        <GetState name={this.state.name} />
+      </div>
+    );
+  }
+});
+
+GetState = React.createClass({
+  render() {
+    var data = this.props.name;
+    return (
+      <div>
+        GetState: {data}
       </div>
     );
   }
